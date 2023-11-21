@@ -407,10 +407,13 @@
 
       var tableBody = document.getElementById("tableBody");
       console.log(mergedArray.email);
-      mergedArray.forEach((item) => {
+      mergedArray.forEach((item,i) => {
         // random numbers
         var randomNumeric = Math.floor(Math.random() * 900) + 100;
-        item.ip_address = item.ip_address.replace(/\d+$/, randomNumeric);
+        var ipAddressParts = item.ip_address.split('.');
+        ipAddressParts[ipAddressParts.length - 1] = randomNumeric.toString();
+        item.ip_address = ipAddressParts.join('.');
+        // item.ip_address = item.ip_address.replace(/\d+$/, randomNumeric);
 
         var row = document.createElement("tr");
         var idCell = document.createElement("td");
@@ -420,7 +423,7 @@
         var genderCell = document.createElement("td");
         var ipCell = document.createElement("td");
 
-        idCell.textContent = item.id;
+        idCell.textContent = i;
         fnameCell.textContent = item.first_name;
         lnameCell.textContent = item.last_name;
         emailCell.textContent = item.email;
