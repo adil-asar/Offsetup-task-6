@@ -385,16 +385,19 @@
         },
       ];
 
+    //   merging array one and two
       var mergedArray = [...arr1, ...arr2];
-
+// updting email
       mergedArray.forEach((item) => {
         if (item.email === "bgillbanksc@noaa.gov") {
           item.email = "user@offsetup.com";
         }
       });
 
+    //   removing sixth element or item 
       mergedArray.splice(5, 1);
 
+    //   find ip address
       if (foundObject) {
         alert('The array contains an object with the IP address "111.113.58.161"');
       } else {
@@ -405,6 +408,7 @@
       var tableBody = document.getElementById("tableBody");
       console.log(mergedArray.email);
       mergedArray.forEach((item) => {
+        // random numbers
         var randomNumeric = Math.floor(Math.random() * 900) + 100;
         item.ip_address = item.ip_address.replace(/\d+$/, randomNumeric);
 
@@ -433,6 +437,7 @@
         tableBody.appendChild(row);
       });
 
+    //   find ip idress
       var foundObject = mergedArray.find(
         (item) => item.ip_address === "111.113.58.161"
       );
